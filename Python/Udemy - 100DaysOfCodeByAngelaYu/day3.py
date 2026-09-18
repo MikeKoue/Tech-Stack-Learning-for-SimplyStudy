@@ -1,122 +1,85 @@
-# Conditional/ if-else statements
 print("Welcome to the rollercoaster!")
 height = int(input("What is your height in cm? "))
 
 if height >= 120:
     print("You can ride the rollercoaster")
-else:
-    print("Sorry you have to grow taller before you can ride")
-
-# Comparision operators include >, <, >=, <=, ==, !=
-
-# modulo takes the remainder of a division problem
-print(10 % 3)
-
-Answer = int(input("Enter an Integer! "))
-if Answer % 2 == 0:
-    print("The number you inputed is even!")
-else:
-    print("The number you inputed is odd!")
-
-
-# print("Welcome to the rollercoaster!")
-# height = int(input("What is your height in cm? "))
-
-# if height >= 120:
-#     age = int(input("How old are you? "))
-#     if age >= 18:
-#         print("You have to pay $12.")
-#     elif age < 18 and age >= 12:
-#         print("You have to pay $7.")
-#     else:
-#         print("You have to pay $5.")
-# else:
-#     print("Sorry you have to grow taller before you can ride")
-
-
-print("Welcome to the rollercoaster!")
-height = int(input("What is your height in cm? "))
-
-if height >= 120:
-    age = int(input("How old are you? "))
+    age = int(input("What is your age? "))
     if age >= 18:
         bill = 12
-    elif 45 >= age <= 55:
-        print("Everything ok? Have a free ride on us!")
-    elif age < 18 and age >= 12:
-        bill = 7
-    else:
+        print("Price is $12.")
+    elif age < 12:
         bill = 5
-    
-    wants_photo = input("Do you want to have a photo taken? type y for Yes and n for No. ")
+        print("Price is $5.")
+    elif 45 <= age <= 55:
+        bill = 0
+        print("Everything is going to be ok. Have a free ride on us!")
+    else:
+        bill = 7
+        print("Price is $7")
+
+    wants_photo = input("Do you want to have a photo take? Type y for Yes and n for No.")
     if wants_photo == "y":
         bill += 3
-
-    print(f"You final bill is ${bill}.")
+    else:
+        bill += 0
+    print(f"Your final bill is ${bill}.")
 else:
-    print("Sorry you have to grow taller before you can ride")
+    print("sorry you have to grow taller before you can ride.")
 
+# Modulo Operator 
+Number = int(input("Enter a number to know if it is even or odd. "))
+if Number % 2 != 0:
+    print("Your number is odd")
+else:
+    print("Your number is even")
 
-print("Welcome to Python Pizza Deliveries!")
-size = input("What size pizza do you wnat? S ($15), M ($20) or L ($25): ")
+# pizz order practice
+size = input("What size pizza do you want? S, M or L: ")
 pepperoni = input("Do you want pepperoni on your pizza? Y or N: ")
 extra_cheese = input("Do you want extra cheese? Y or N: ")
 
+bill = 0
 if size == "S":
-    bill = 15
+    bill += 15
 elif size == "M":
-    bill = 20
+    bill += 20
 elif size == "L":
-    bill = 25
+    bill += 25
+else:
+    print("You typed the wrong input.")
 if pepperoni == "Y":
     if size == "S":
-        bill += 1
+        bill += 2
     else:
         bill += 3
 if extra_cheese == "Y":
     bill += 1
-print(f"Your final bill is ${bill}. Thank you and have a wonderful day\n")
 
-print('''
-                      __
-                 / _,\
-                 \_\
-      ,,,,    _,_)  #      /)
-     (= =)D__/    __/     //
-    C/^__)/     _(    ___//
-      \_,/  -.   '-._/,--'
-_\\_,  /           -//.
- \_ \_/  -,._ _     ) )
-   \/    /    )    / /
-   \-__,/    (    ( (
-              \.__,-)\_
-               )\_ / -(
-              / -(////
-             ////  
-      
-      
-      
-      
-      
-      
-      
-      ''')
+print(f"Your final bill is: ${bill}.")
 
-print("Welcome to treasure island!")
+# logical operators 
 
-choice = input(print("You're at a cross road. Where do you want to go? R or L")).lower()
-if choice == "r":
-    print("Game over. You go hit by Truck-kun and isekaid")
+# day 3 project: Choose your own adventure
+
+
+
+
+print("Welcome to Treasure Island. Your mission is to find the treasure")
+answer = (input("You come across to paths. One is on the left and the other on the right. Type left or right to choose where to go. "))
+answer.lower()
+if answer == "left":
+    answer = input("You continue on the path through a an abondoned castle and come across a lake on the other side. You have the choice to either wait or continue. Type wait or continue to proceed.  ") 
+    answer.lower()
+    if answer == "wait":
+        answer = input("You answered a riddle to a magical fairy and a bridge appeared for you to cross the lake. You come across a set of three portals with the colors red, yellow, and blue. Type one of the colors to choose which portal to enter. ")
+        answer.lower()
+        if answer == "yellow":
+           print("Yeah you found the treasure of an old wise king. Congrats!")
+        else:
+            print("You came into an empty dimension filled with darkness. You forever rot in body and minde. How unfortunate.")
+    else:
+        print("The lake had a vicious undercurrent that dragged you into the mouth of a gigantic clam. How unfortunate.")
+    
+
 else:
-    print("You've come across a lake. There is an island in the middle of the lake.")
-
-choice = input(print("Type wait to wait for a boat. Type swim to swim to swim across."))
-if choice == "swim":
-    print("Game over. You got swallowed by the Kraken")
-else:
-    print("You wait for the boat and get accross to the castle.")
-choice = input(print("There are three doors, blue, yellow, and red. pick one"))
-if choice != "yellow":
-    print(" Game over. You opened the door and there was a green light that turned you into stone. Gotta wait for a Doctor named Senku")
-else:
-    print("You get the treasure")
+  print("You stumbled across a dragon and became barbecue. How unfortunate.")
